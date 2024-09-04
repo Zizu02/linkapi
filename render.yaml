@@ -1,0 +1,11 @@
+services:
+  - name: paytr-flask-app
+    type: web
+    env: python
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    plan: free
+    envVars:
+      - key: FLASK_ENV
+        value: production
